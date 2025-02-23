@@ -1,6 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Nunito, Montserrat } from "next/font/google";
+import Providers from "@/shared/ui/ThemeProvider/ThemeProvider";
+
 import "./globals.css";
+import { Header } from "@/features/navigation/ui/header";
+
+const nunitoSans = Nunito({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-nunito",
+});
+
+const montserrat = Montserrat({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,8 +28,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${nunitoSans.variable} ${montserrat.variable} antialiased max-w-9xl m-auto`}
+      >
+        <Providers>
+          <Header />
+          <main>{children}</main>
+        </Providers>
+      </body>
     </html>
   );
 }

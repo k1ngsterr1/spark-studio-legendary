@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,6 +9,10 @@ export default {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        "8xl": "90rem", // 1440px
+        "9xl": "99rem", // 1600px
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
