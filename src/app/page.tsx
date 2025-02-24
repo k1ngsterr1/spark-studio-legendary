@@ -1,5 +1,10 @@
-import Image from "next/image";
+import { HeroSection } from "@/widgets/sections/hero-section";
+import Providers from "@/shared/ui/ThemeProvider/ThemeProvider";
 
 export default function Home() {
-  return <div>Test</div>;
+  return (
+    <Providers>
+      <HeroSection />
+    </Providers>
+  );
 }
